@@ -1,4 +1,0 @@
--- Torna o schema elmasri permanente no SEARCH_PATH.
-
-ALTER USER daniel
-SET SEARCH_PATH TO elmasri, "$user", public;
