@@ -1,0 +1,3 @@
+-- Criação do Schema "elmasri".
+
+CREATE SCHEMA elmasri AUTHORIZATION daniel;
