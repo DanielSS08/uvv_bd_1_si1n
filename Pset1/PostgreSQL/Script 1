@@ -1,0 +1,3 @@
+-- Script 1: Criação do Usuário com privilégio de criação de um Bando de Dados.
+
+CREATE USER daniel WHITH creatdb PASSWORD 'billy' ;
