@@ -1,0 +1,14 @@
+SELECT 
+  nome_departamento,
+  
+  CASE 
+       WHEN dp.numero_departamento = 1 THEN 'Jorge'
+       WHEN dp.numero_departamento = 4 THEN 'Jennifer'
+       WHEN dp.numero_departamento = 5 THEN 'Fernando'
+  END             AS nome_gerente,
+  
+  primeiro_nome   AS nome_funcionario,
+  salario         AS salario_funcionario
+FROM elmasri.departamento      dp
+INNER JOIN elmasri.funcionario f ON (f.numero_departamento = dp.numero_departamento)
+ORDER BY nome_departamento ASC, salario DESC;
