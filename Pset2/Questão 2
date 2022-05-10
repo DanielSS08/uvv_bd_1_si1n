@@ -1,0 +1,5 @@
+SELECT 
+sexo,
+AVG(salario) AS media_salarial
+FROM elmasri.funcionario
+GROUP BY sexo;
