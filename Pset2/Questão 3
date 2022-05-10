@@ -1,0 +1,7 @@
+SELECT 
+nome_departamento,
+CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)  AS nome_completo_funcionario,
+data_nascimento, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade,
+salario
+FROM elmasri.funcionario      f  
+INNER JOIN elmasri.departamento dp ON (f.numero_departamento = dp.numero_departamento);
