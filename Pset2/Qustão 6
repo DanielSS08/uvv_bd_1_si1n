@@ -1,0 +1,12 @@
+SELECT 
+  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                  AS nome_completo_funcionario
+, numero_departamento                                                    AS departamento
+, CONCAT(nome_dependente, ' ', ultimo_nome)                              AS nome_completo_dependente
+, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente
+
+, CASE 
+       WHEN d.sexo = 'M' THEN 'Masculino'
+       WHEN d.sexo = 'F' THEN 'Feminino'
+  END                                                                    AS sexo_dependente
+FROM elmasri.funcionario      f
+INNER JOIN elmasri.dependente d ON (f.cpf = d.cpf_funcionario);
