@@ -1,0 +1,8 @@
+SELECT 
+  nome_departamento,
+  nome_projeto,
+  SUM(horas) AS soma_horas
+FROM elmasri.departamento      dp
+INNER JOIN elmasri.projeto     p ON (dp.numero_departamento = p.numero_departamento)
+INNER JOIN elmasri.trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+GROUP BY nome_departamento, nome_projeto;
