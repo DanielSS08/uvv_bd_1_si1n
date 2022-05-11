@@ -1,0 +1,9 @@
+SELECT DISTINCT 
+  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario,
+  nome_projeto,
+  SUM(horas * 50)                                       AS valor_total
+FROM elmasri.funcionario       f
+INNER JOIN elmasri.projeto     p   ON (f.numero_departamento = p.numero_departamento)
+INNER JOIN elmasri.trabalha_em t   ON (p.numero_projeto = t.numero_projeto)
+GROUP BY nome_completo_funcionario, nome_projeto
+ORDER BY nome_completo_funcionario;
