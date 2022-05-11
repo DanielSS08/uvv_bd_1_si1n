@@ -1,0 +1,9 @@
+SELECT 
+  nome_departamento,
+  nome_projeto,
+  primeiro_nome AS nome_funcionario
+FROM elmasri.projeto            p
+INNER JOIN elmasri.departamento dp ON (p.numero_departamento = dp.numero_departamento)
+INNER JOIN elmasri.funcionario  f  ON (p.numero_departamento = f.numero_departamento)
+INNER JOIN elmasri.trabalha_em  t  ON (p.numero_projeto = t.numero_projeto)
+WHERE t.horas IS NULL OR t.horas = 0;
