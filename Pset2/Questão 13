@@ -1,0 +1,12 @@
+SELECT 
+  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_pessoa,
+  sexo                                                                 AS sexo,
+  DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
+FROM elmasri.funcionario
+UNION
+SELECT CONCAT(nome_dependente, ' ', f.ultimo_nome),
+  d.sexo,
+  DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento)
+FROM elmasri.dependente        d
+INNER JOIN elmasri.funcionario f ON (cpf_funcionario = cpf)
+ORDER BY idade DESC;
