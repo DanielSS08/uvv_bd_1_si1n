@@ -1,0 +1,11 @@
+SELECT 
+  f.numero_departamento                                 AS departamento
+, nome_projeto
+, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
+FROM elmasri.funcionario       f
+INNER JOIN elmasri.trabalha_em t ON (f.cpf = t.cpf_funcionario)
+INNER JOIN elmasri.projeto     p ON (p.numero_projeto = t.numero_projeto)
+WHERE f.cpf = t.cpf_funcionario
+GROUP BY departamento, nome_projeto, nome_completo_funcionario 
+ORDER BY nome_completo_funcionario;
