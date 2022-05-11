@@ -1,0 +1,6 @@
+SELECT 
+  nome_departamento AS departamento, 
+  COUNT(cpf)        AS numero_de_funcionarios
+FROM elmasri.funcionario        f
+INNER JOIN elmasri.departamento dp ON (f.numero_departamento = dp.numero_departamento)
+GROUP BY nome_departamento;
